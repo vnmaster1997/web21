@@ -1,0 +1,36 @@
+.menu {
+    background: #D5B0AC;
+    text-align: center;
+    color: #402E2A;
+    font-weight: bold;
+    line-height: 2;
+    text-align: center;
+}
+
+.menu_horizontal {
+    height: 30px;
+}
+
+.menu_horizontal .item {
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+}
+
+.item:hover {
+    color: #FFFFFF;
+    background: #9CD08F;
+    cursor: pointer;
+}
+
+.menu_vertical {
+    width: 100px;
+}
+
+.menu_vertical .item {
+    width: 100px;
+    height: 30px;
+    box-sizing: border-box;
+    border-top: 1px solid white;
+    display: block;
+}
