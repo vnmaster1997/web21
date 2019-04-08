@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">    
+</head>
+<body>
+    <h1 id="text-question" class="text-center"></h1>
+    <form action="/addquestion/:number" method="POST">
+        <div id="btn-answer">
+            <div id="btn-no">
+                <button class="btn btn-danger btn-lg" type="submit" name="btn-yesno" value="no">
+                    <span class="glyphicon glyphicon-thumbs-down">
+                        Sai / Không / Trái
+                    </span>
+                </button>
+            </div>
+            <div id="btn-yes">
+                <button class="btn btn-primary btn-lg" type="submit" name="btn-yesno" value="yes">
+                    <span class="glyphicon glyphicon-thumbs-down">
+                        Đúng / Có / Phải
+                    </span>
+                </button>
+            </div>
+            <div class="space"></div>
+        </div>
+        <div id="btn-tab">
+            <button class="btn btn-default" type="submit" name="btn-yesno" value="resultvote">Kết quả vote</button>
+            <button class="btn btn-default" type="submit" name="btn-yesno" value="differentquestion">Câu hỏi khác</button>
+        </div>
+    </form>
+</body>
+<script>
+</script>
+
+<style>
+
+</style>
+</html>
