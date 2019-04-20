@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <script
+			  src="https://code.jquery.com/jquery-3.4.0.js"
+			  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+			  crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 id="content"></h1>
+        <div>
+            <a href="#" id="no">
+                <button>Sai / Không / Trái</button>
+            </a>
+            <a href="#" id="yes">
+                <button>Đúng / Có / Phải</button>
+            </a>
+        </div>
+        <div>
+            <a href="#" id="result"><button>Kết quả vote</button></a>
+            
+            <button>Câu hỏi khác</button>
+            
+        </div>
+</body>
+<script>
+    $.ajax({
+        url: "/randomquestion",
+        type: "GET",
+        success: (data) => {
+            $("#content").text(data.content);
+            $("#no").attr("href",`/vote/${data._id}/no`);
+            $("#yes").attr("href", `/vote/${data._id}/yes`);
+            $("#result").attr("href", `/question/${data._id}`);
+        },
+        error: (error) => {
+            console.log(error);     
+        }
+    })
+</script>
+</html>

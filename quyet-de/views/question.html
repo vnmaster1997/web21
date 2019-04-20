@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.0.js"
+    integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 id = "content"></h1>    
+    <div>Vote: <span id="total"></span></div>
+    <div>Yes: <span id="yes"></span></div>
+    <div>No: <span id="no"></span></div>
+
+    <a href="/"><button>Cau hoi khac</button></a>
+</body>
+
+<script>
+    const questionId = window.location.pathname.split('/')[2];
+    $.ajax({
+        url: `/getinfo/${questionId}`,
+        type: "GET",
+        success: function(data) {
+            $("#total").text(data.yes + data.no);
+            $("#yes").text(data.yes);
+            $("#no").text(data.no);
+        }, 
+        error: function(error) {
+            console.log(error);
+        }
+    })
+</script>
+</html>
