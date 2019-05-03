@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css"> 
     <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Hãy hỏi cộng đồng 1 câu hỏi đúng/sai</h1>
     <form action="/addquestion" method="POST"> 
         <!-- form gui key:value name=key -->
-        <textarea name="question" maxlength="200" id="question" cols="100" rows="10" onkeyup="myFunction()"></textarea>
+        <textarea name="question" maxlength="200" id="question" cols="100" rows="10"></textarea>
         <span id="remain">Còn 200/200 ký tự</span>
         <button>Submit</button>
     </form>
@@ -21,9 +22,16 @@
     // function myFunction(){
     //     document.getElementById("remain").innerText = "Còn " + (200 - document.querySelector("textarea").textLength) + "/200 ký tự";
     // }
-    document.getElementById("question").addEventListener("keydown", function() {
-            const remainChar = 200 - document.getElementById("question").value.length;
-            document.getElementById("remain").innerText = `còn ${remainChar}/200 ký tự`;
+    // document.getElementById("question").addEventListener("keydown", function() {
+    //         const remainChar = 200 - document.getElementById("question").value.length;
+    //         document.getElementById("remain").innerText = `còn ${remainChar}/200 ký tự`;
+    //     })
+        $(document).ready(function() {
+            $("#question").keyup(function() {
+                const remainChar = 200 - $("#question").val().length;
+                // $("#remain").text(`còn ${remainChar}/200 Ký tự`);
+                $("#remain").html(`<span>còn ${remainChar}/200 ký tự</span>`);
+            })
         })
 </script>
 
