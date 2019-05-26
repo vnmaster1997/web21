@@ -18,6 +18,9 @@
 <body>
     <div class="container">
         <h1 style="text-align: center; margin: 40px auto">Login</h1>
+        <div class="row mt-5">
+            <h1 >hi, <span id="user"></span></h1>
+        </div>
         <form id="loginSubmit" style="max-width: 400px; margin: 50px auto;" method="POST" action="/api/auth/login">
             <div class="form-group">
             <label for="username">Username</label>
@@ -42,7 +45,7 @@
 </body>
 <script>
     $(document).ready(function() {
-        $("#loginSubmit").submit(function(event) {
+        $('#loginSubmit').submit(function(event) {
             event.preventDefault();
             var username = $("#username").val();
             var password = $("#password").val();
@@ -55,15 +58,24 @@
                 },
                 success: function(data) {
                     console.log(data);
+                    if(data.success) {
+                        // dang nhap thanh cong
+                        // $('#user').text(username);
+                        window.location.href = '/';
+                    } else {
+                        // dang nhap that bai
+                        $('#result').text(data.message);
+                    }
                 },
                 error: function(error) {
                     console.log(error);
                 }
-            }).done(function(response) {
-                // console.log(response.message);
-                $("#result").html(response.message);
-                // $("#result").append(`<p>${response.message}</p>`) 
             })
+            // .done(function(response) {
+            //     // console.log(response.message);
+            //     $("#result").html(response.message);
+            //     // $("#result").append(`<p>${response.message}</p>`) 
+            // })
         })
 
 

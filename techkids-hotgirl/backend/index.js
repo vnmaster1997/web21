@@ -26,10 +26,13 @@ const userApiRouter = require('./routers/userApi');
 const postApiRouter = require('./routers/postApi');
 const authApiRouter = require('./routers/authApi');
 
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/views/home.html');
+})
+
 app.get('/login', (req, res) => {
 	res.sendFile(__dirname + '/views/login.html');
 })
-
 app.use('/api/auth', authApiRouter);
 
 app.use((req, res, next) => {
